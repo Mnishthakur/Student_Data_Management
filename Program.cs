@@ -25,12 +25,16 @@ namespace Student_Data_Management
             new Student { Id = 4, Name = "Salet", PhoneNumber = "3210987654", Address = "Address 3", Age = 20, TotalMarks = 88.7 },
             new Student { Id = 5, Name = "Juhi", PhoneNumber = "7890123456", Address = "Address 2", Age = 15, TotalMarks = 76.2 }
         };
-
-            Console.WriteLine("\nStudents Sorted by TotalMarks (Descending):");
-            students.Sort((s1, s2) => s2.TotalMarks.CompareTo(s1.TotalMarks));
-            foreach (var student in students)
-            {
-                Console.WriteLine($"Id: {student.Id}, Name: {student.Name}, Total Marks: {student.TotalMarks}");
+            Console.WriteLine("\nStudents Grouped by Address:");
+            var addressGroups = students.GroupBy(s => s.Address);
+            foreach (var group in addressGroups)
+           {
+                 Console.WriteLine($"Address: {group.Key}");
+                 foreach (var student in group)
+                 {
+                     Console.WriteLine($"Id: {student.Id}, Name: {student.Name}, Address: {student.Address}");
+                 }
+            Console.WriteLine();
             }
         }
     }
