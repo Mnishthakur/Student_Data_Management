@@ -25,16 +25,23 @@ namespace Student_Data_Management
             new Student { Id = 4, Name = "Salet", PhoneNumber = "3210987654", Address = "Address 3", Age = 20, TotalMarks = 88.7 },
             new Student { Id = 5, Name = "Juhi", PhoneNumber = "7890123456", Address = "Address 2", Age = 15, TotalMarks = 76.2 }
         };
-            Console.WriteLine("\nFirst Three Student Records:");
-            int count = 0;
+            string searchName = "Ankit";
+            Console.WriteLine($"\nSearching for student with Name: {searchName}");
+            bool found = false;
             foreach (var student in students)
             {
-            Console.WriteLine($"Id: {student.Id}, Name: {student.Name}");
-            count++;
-            if (count == 3)
+            if (student.Name.Equals(searchName, StringComparison.OrdinalIgnoreCase))
             {
-                  break;
-            }
+            Console.WriteLine($"Id: {student.Id}, Name: {student.Name}");
+            found = true;
+                break;
+         }
+         }
+
+         if (!found)
+         {
+                Console.WriteLine("Student not found.");
+         }
         }
     }
 }
