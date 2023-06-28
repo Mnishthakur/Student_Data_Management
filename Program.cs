@@ -26,13 +26,11 @@ namespace Student_Data_Management
             new Student { Id = 5, Name = "Juhi", PhoneNumber = "7890123456", Address = "Address 2", Age = 15, TotalMarks = 76.2 }
         };
 
-            Console.WriteLine("\nStudents with Age between 12 and 18:");
+            Console.WriteLine("\nStudents Sorted by TotalMarks (Descending):");
+            students.Sort((s1, s2) => s2.TotalMarks.CompareTo(s1.TotalMarks));
             foreach (var student in students)
             {
-                if (student.Age >= 12 && student.Age <= 18)
-                {
-                    Console.WriteLine($"Id: {student.Id}, Name: {student.Name}, Age: {student.Age}");
-                }
+                Console.WriteLine($"Id: {student.Id}, Name: {student.Name}, Total Marks: {student.TotalMarks}");
             }
         }
     }
